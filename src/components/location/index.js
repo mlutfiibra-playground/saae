@@ -2,11 +2,16 @@ import React, { useEffect } from 'react';
 
 import LocationService from 'services/LocationService';
 
-export default function Weather() {
+export default function Location({ handleCurrentLocation }) {
   useEffect(() => {
     async function getCurrentLocation() {
-      const { data } = await LocationService.getLocation();
-      console.log(data);
+      try {
+        const { data } = await LocationService.getLocation();
+        const city = data.city || 'Jakarta';
+        handleCurrentLocation(city);
+      } catch {
+        handleCurrentLocation('Jakarta');
+      }
     }
 
     getCurrentLocation();
