@@ -13,6 +13,7 @@ function App() {
       <div className="wrapper">
         <div className="sidebar">&nbsp;</div>
         <div className="abs-center">
+          <div class="pulse" />
           <p>Saae OS</p>
         </div>
         <div className="sidebar">
