@@ -3,17 +3,22 @@ import React, { useState } from 'react';
 import Location from 'components/location';
 import Weather from 'components/weather';
 
-import './style.scss';
+import './App.scss';
 
 function App() {
   const [currentLocation, setCurrentLocation] = useState('');
 
   return (
-    <div className="App">
-      <div className="container">
-        <p>Saae OS</p>
-        <Location handleCurrentLocation={setCurrentLocation} />
-        <Weather currentLocation={currentLocation} />
+    <div className="app">
+      <div className="wrapper">
+        <div className="sidebar">&nbsp;</div>
+        <div className="abs-center">
+          <p>Saae OS</p>
+        </div>
+        <div className="sidebar">
+          <Location handleCurrentLocation={setCurrentLocation} />
+          <Weather currentLocation={currentLocation} />
+        </div>
       </div>
     </div>
   );
