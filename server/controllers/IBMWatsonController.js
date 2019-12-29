@@ -9,7 +9,6 @@ const personalityInsights = new PersonalityInsightsV3({
 });
 
 module.exports = function(data) {
-  console.log(data, "!!!!!!!!!!!!!!!");
   let { IBMAnalysis } = converDataStructure(data);
   const profileParams = {
     content: JSON.parse(JSON.stringify(IBMAnalysis)),
@@ -18,7 +17,6 @@ module.exports = function(data) {
     raw_scores: true
   };
   // return personalityInsights.profile(profileParams)
-  console.log(profileParams.content.contentItems, "!!!!!!!!!!!!!!!!!");
   return new Promise((resolve, reject) => {
     personalityInsights
       .profile(profileParams)
